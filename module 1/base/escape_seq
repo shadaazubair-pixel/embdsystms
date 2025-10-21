@@ -1,0 +1,8 @@
+#include<stdio.h>
+int main(){
+    int b=100;
+    float h=200.50;
+    char g='A';
+    printf("basic=%d\nhra=%f\ngrade=%c",b,h,g);
+    return 0; 
+}

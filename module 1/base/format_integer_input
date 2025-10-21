@@ -1,0 +1,9 @@
+#include<stdio.h>
+int main(){
+    int a,b;
+    scanf("%2d%3d",&a,&b);
+    printf("the numbers are %d",a);
+    printf("the numbers are %d",b);
+
+    return 0;
+}

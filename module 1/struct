@@ -1,0 +1,15 @@
+#include<stdio.h>
+
+int a;
+char b;
+float c;
+
+
+typedef struct{
+
+}
+int main(){
+
+    printf("size of a=%zu",sizeof(a));
+    return 0;
+}
