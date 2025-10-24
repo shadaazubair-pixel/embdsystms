@@ -1,0 +1,13 @@
+#include<stdio.h>
+int main(){
+
+    int a;
+
+    printf("enter a number:");
+    scanf("%d",&a);
+
+    if(a/2&&a/5){
+        printf("the number is even and divisble by 5\n");
+    }
+    return 0;
+}
