@@ -1,0 +1,23 @@
+#include<stdio.h>
+void PrintBin(int n){
+    int mask;
+    for(int i=31;i>=0,i--){
+        mask=1<<i;
+        if(n&&mask){
+            printf("1");
+        }
+        else{
+            print("0");
+        }
+
+    }
+}
+
+
+int main(){
+    int a;
+    printf("enter an integer:");
+    scanf("%d",&a);
+
+
+}
