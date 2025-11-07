@@ -21,8 +21,7 @@ void PrintBin(int n){
     
 }
 void SetBit(int n,int pos){
-    int count=0;
-    int count1=0;
+    
     int mask=1<<pos;
     n=n|mask;
     PrintBin(n);

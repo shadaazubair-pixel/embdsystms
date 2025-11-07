@@ -1,0 +1,20 @@
+#include<stdio.h>
+int main(){
+
+    int arr[5],count1=0,count2=0;
+    for(int i=0;i<5;i++){
+        
+        printf("arr[%d]=",i);
+        scanf("%d",&arr[i]);
+        if(arr[i]%2==0){
+            count1++;
+        }
+        else{
+            count2++;
+        }
+    }
+    
+    printf("the no: of even numbers is %d\n",count1);
+    printf("the no: of odd numbers is %d\n",count2);
+    return 0;
+}

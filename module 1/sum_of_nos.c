@@ -12,13 +12,24 @@ int main(){
     }
     printf("the sum of the digits= %d",sum);*/
 
-    do{
+    /*do{
         rem=num%10;
         sum+=rem;
         num=num/10;
 
     }while(num=0);
 
-    printf("the sum of digits is %d",sum);
+    printf("the sum of digits is %d",sum);*/
+
+
+    for(;num>0;num/=10){
+        
+        rem=num%10;
+        sum+=rem;
+        
+
+
+    }
+    printf("sum of digits=%d\n",sum);
     return 0;
 }
