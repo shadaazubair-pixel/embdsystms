@@ -1,4 +1,3 @@
-
 #define F_CPU 16000000UL
 #include <avr/io.h>
 #include <util/delay.h>
@@ -27,19 +26,19 @@ int main(void)
 {
 	DDRB|=(1<<DDB3)|(1<<DDB5);  //Initializing pin3 and pin5 as output
 	
-   
-    while (1)
-	 
-    {
-		cw();       
+	
+	while (1)
+	
+	{
+		cw();
 		_delay_ms(5000);
 		stp();
 		_delay_ms(3000);
-		ccw();     
+		ccw();
 		_delay_ms(5000);
-		stp();     
+		stp();
 		_delay_ms(3000);
 		
-    }
+	}
 }
 
