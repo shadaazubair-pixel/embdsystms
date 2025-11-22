@@ -7,12 +7,14 @@ void cw(){  // function declaration and definition to turn one LED on and other 
 	
 	PORTB|=(1<<PB3);
 	PORTB&=~(1<<PB5);
+	_delay_ms(5000);
 	
 }
 
 void stp(){ // function declaration and definition to turn both off
 	PORTB&=~(1<<PB3);
 	PORTB&=~(1<<PB5);
+	_delay_ms(3000);
 	
 }
 
@@ -20,6 +22,7 @@ void ccw(){  // function declaration and definition to turn first LED off and se
 	
 	PORTB&=~(1<<PB3);
 	PORTB|=(1<<PB5);
+	_delay_ms(5000);
 }
 
 
@@ -32,13 +35,10 @@ int main(void)
 	 
     {
 		cw();       
-		_delay_ms(5000);
 		stp();
-		_delay_ms(3000);
 		ccw();     
-		_delay_ms(5000);
 		stp();     
-		_delay_ms(3000);
+		
 		
     }
 }

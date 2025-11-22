@@ -1,9 +1,4 @@
-/*
- * Blink_bitwise.c
- *
- * Created: 11/19/2025 4:24:48 PM
- * Author : user
- */ 
+
 #define F_CPU 16000000UL
 #include <avr/io.h>
 #include<util/delay.h>
