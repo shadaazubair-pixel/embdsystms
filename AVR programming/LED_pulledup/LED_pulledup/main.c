@@ -4,21 +4,21 @@
 
 int main(void)
 {
-	DDRB|=(1<<DDB5); // initialized as output
-	DDRD&=~(1<<DDD2);
-	PORTD|=(1<<PD2);
+	DDRB|=(1<<DDB5); // initialized as PB5 output
+	DDRD&=~(1<<DDD2); //initializing PD2 as input
+	PORTD|=(1<<PD2); // input as pulled up condition internally
 	
 	
 	
     
     while (1) 
 	
-    { if(!(PIND&(1<<PD2))){
-		PORTB|=(1<<PB5);
+    { if(!(PIND&(1<<PD2))){ //checking if input is 0
+		PORTB|=(1<<PB5);  // LED blinks
     }
 	
 	else{
-		PORTB&=~(1<<PB5);
+		PORTB&=~(1<<PB5); // LED do not blink
 	}
 }
 }
