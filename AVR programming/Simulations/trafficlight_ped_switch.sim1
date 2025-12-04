@@ -16,7 +16,7 @@
 
 <item itemtype="DcMotor" CircId="DcMotor-17" mainComp="false" Show_id="true" Show_Val="false" Pos="172,40" rotation="90" hflip="1" vflip="1" label="DcMotor-17" idLabPos="-22,-48" labelrot="0" valLabPos="-14,36" valLabRot="0" RPM_Nominal="60 _RPM" Volt_Nominal="5 V" Resistance="100 Ω" />
 
-<item itemtype="Fixed Voltage" CircId="Fixed Voltage-18" mainComp="false" Show_id="false" Show_Val="false" Pos="-12,92" rotation="0" hflip="1" vflip="1" label="Fixed Voltage-18" idLabPos="-64,-24" labelrot="0" valLabPos="-16,8" valLabRot="0" Voltage="5 V" Out="true" />
+<item itemtype="Fixed Voltage" CircId="Fixed Voltage-18" mainComp="false" Show_id="false" Show_Val="false" Pos="-12,92" rotation="0" hflip="1" vflip="1" label="Fixed Voltage-18" idLabPos="-64,-24" labelrot="0" valLabPos="-16,8" valLabRot="0" Voltage="5 V" Out="false" />
 
 <item itemtype="Push" CircId="Push-22" mainComp="false" Show_id="false" Show_Val="false" Pos="-148,-8" rotation="0" hflip="1" vflip="1" label="Push-22" idLabPos="-16,-24" labelrot="0" valLabPos="-16,20" valLabRot="0" Norm_Close="false" Poles="1" />
 
