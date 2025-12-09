@@ -1,16 +1,11 @@
-/*
- * Modularity_DCmotor.c
- *
- * Created: 12/4/2025 7:40:43 PM
- * Author : user
- */ 
-
+#define F_CPU 16000000UL
 #include <avr/io.h>
 
 
 int main(void)
-{
-    /* Replace with your application code */
+{  DDRB|=(1<<PB5)|(1<<PB4);
+	
+   
     while (1) 
     {
     }

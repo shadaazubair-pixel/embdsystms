@@ -6,7 +6,8 @@ int main(void)
 
 
 {
-	DDRD|=(1<<DDD6); //configure PD6 as output sice we are using OCR0A
+	DDRD|=(1<<DDD6);  //configure PD6 as output sice we are using OCR0A
+	DDRB|=(1<<DDB4);
 	
 	
 	//set in phase correct PWM

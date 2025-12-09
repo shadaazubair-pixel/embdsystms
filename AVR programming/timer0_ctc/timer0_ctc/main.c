@@ -4,7 +4,7 @@
 void delay_1s(){
 	
 	TCNT0=0; //load initial value
-	OCR0A=199; //compare value(total count=0)
+	OCR0A=199; //compare value(total count=200)
 	
 	// set timer in CTC mode
 	TCCR0A&=~(1<<WGM00);

@@ -3,27 +3,27 @@ PWM_timer0_DCmotor.elf:     file format elf32-avr
 
 Sections:
 Idx Name          Size      VMA       LMA       File off  Algn
-  0 .data         00000000  00800100  00800100  00000108  2**0
+  0 .data         00000000  00800100  00800100  0000010e  2**0
                   CONTENTS, ALLOC, LOAD, DATA
-  1 .text         000000b4  00000000  00000000  00000054  2**1
+  1 .text         000000ba  00000000  00000000  00000054  2**1
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
-  2 .comment      00000030  00000000  00000000  00000108  2**0
+  2 .comment      00000030  00000000  00000000  0000010e  2**0
                   CONTENTS, READONLY
-  3 .note.gnu.avr.deviceinfo 00000040  00000000  00000000  00000138  2**2
+  3 .note.gnu.avr.deviceinfo 00000040  00000000  00000000  00000140  2**2
                   CONTENTS, READONLY
-  4 .debug_aranges 00000020  00000000  00000000  00000178  2**0
+  4 .debug_aranges 00000020  00000000  00000000  00000180  2**0
                   CONTENTS, READONLY, DEBUGGING
-  5 .debug_info   0000067c  00000000  00000000  00000198  2**0
+  5 .debug_info   0000067c  00000000  00000000  000001a0  2**0
                   CONTENTS, READONLY, DEBUGGING
-  6 .debug_abbrev 000005f8  00000000  00000000  00000814  2**0
+  6 .debug_abbrev 000005f8  00000000  00000000  0000081c  2**0
                   CONTENTS, READONLY, DEBUGGING
-  7 .debug_line   000001fd  00000000  00000000  00000e0c  2**0
+  7 .debug_line   00000203  00000000  00000000  00000e14  2**0
                   CONTENTS, READONLY, DEBUGGING
-  8 .debug_frame  00000024  00000000  00000000  0000100c  2**2
+  8 .debug_frame  00000024  00000000  00000000  00001018  2**2
                   CONTENTS, READONLY, DEBUGGING
-  9 .debug_str    00000365  00000000  00000000  00001030  2**0
+  9 .debug_str    00000365  00000000  00000000  0000103c  2**0
                   CONTENTS, READONLY, DEBUGGING
- 10 .debug_ranges 00000010  00000000  00000000  00001395  2**0
+ 10 .debug_ranges 00000010  00000000  00000000  000013a1  2**0
                   CONTENTS, READONLY, DEBUGGING
 
 Disassembly of section .text:
@@ -64,7 +64,7 @@ Disassembly of section .text:
   70:	de bf       	out	0x3e, r29	; 62
   72:	cd bf       	out	0x3d, r28	; 61
   74:	0e 94 40 00 	call	0x80	; 0x80 <main>
-  78:	0c 94 58 00 	jmp	0xb0	; 0xb0 <_exit>
+  78:	0c 94 5b 00 	jmp	0xb6	; 0xb6 <_exit>
 
 0000007c <__bad_interrupt>:
   7c:	0c 94 00 00 	jmp	0	; 0x0 <__vectors>
@@ -75,49 +75,53 @@ int main(void)
 
 
 {
-	DDRD|=(1<<DDD6); //configure PB5 as output
+	DDRD|=(1<<DDD6);  //configure PD6 as output sice we are using OCR0A
   80:	8a b1       	in	r24, 0x0a	; 10
   82:	80 64       	ori	r24, 0x40	; 64
   84:	8a b9       	out	0x0a, r24	; 10
+	DDRB|=(1<<DDB4);
+  86:	84 b1       	in	r24, 0x04	; 4
+  88:	80 61       	ori	r24, 0x10	; 16
+  8a:	84 b9       	out	0x04, r24	; 4
 	
 	
 	//set in phase correct PWM
 	TCCR0A|=(1<<WGM00);
-  86:	84 b5       	in	r24, 0x24	; 36
-  88:	81 60       	ori	r24, 0x01	; 1
-  8a:	84 bd       	out	0x24, r24	; 36
-	TCCR0A&=~(1<<WGM01);
   8c:	84 b5       	in	r24, 0x24	; 36
-  8e:	8d 7f       	andi	r24, 0xFD	; 253
+  8e:	81 60       	ori	r24, 0x01	; 1
   90:	84 bd       	out	0x24, r24	; 36
+	TCCR0A&=~(1<<WGM01);
+  92:	84 b5       	in	r24, 0x24	; 36
+  94:	8d 7f       	andi	r24, 0xFD	; 253
+  96:	84 bd       	out	0x24, r24	; 36
 	
 	//configure in non inverting PWM
 	TCCR0A|=(1<<COM0A1);
-  92:	84 b5       	in	r24, 0x24	; 36
-  94:	80 68       	ori	r24, 0x80	; 128
-  96:	84 bd       	out	0x24, r24	; 36
-	TCCR0A&=~(1<<COM0A0);
   98:	84 b5       	in	r24, 0x24	; 36
-  9a:	8f 7b       	andi	r24, 0xBF	; 191
+  9a:	80 68       	ori	r24, 0x80	; 128
   9c:	84 bd       	out	0x24, r24	; 36
+	TCCR0A&=~(1<<COM0A0);
+  9e:	84 b5       	in	r24, 0x24	; 36
+  a0:	8f 7b       	andi	r24, 0xBF	; 191
+  a2:	84 bd       	out	0x24, r24	; 36
 	
 	//configure for prescalar 64 value
 	TCCR0B&=~(1<<CS02);
-  9e:	85 b5       	in	r24, 0x25	; 37
-  a0:	8b 7f       	andi	r24, 0xFB	; 251
-  a2:	85 bd       	out	0x25, r24	; 37
-	TCCR0B|=(1<<CS01)|(1<<CS00);
   a4:	85 b5       	in	r24, 0x25	; 37
-  a6:	83 60       	ori	r24, 0x03	; 3
+  a6:	8b 7f       	andi	r24, 0xFB	; 251
   a8:	85 bd       	out	0x25, r24	; 37
+	TCCR0B|=(1<<CS01)|(1<<CS00);
+  aa:	85 b5       	in	r24, 0x25	; 37
+  ac:	83 60       	ori	r24, 0x03	; 3
+  ae:	85 bd       	out	0x25, r24	; 37
 	
-	OCR0A=77; //Duty cycle 50%
-  aa:	8d e4       	ldi	r24, 0x4D	; 77
-  ac:	87 bd       	out	0x27, r24	; 39
-  ae:	ff cf       	rjmp	.-2      	; 0xae <main+0x2e>
+	OCR0A=77; //Duty cycle 30%
+  b0:	8d e4       	ldi	r24, 0x4D	; 77
+  b2:	87 bd       	out	0x27, r24	; 39
+  b4:	ff cf       	rjmp	.-2      	; 0xb4 <main+0x34>
 
-000000b0 <_exit>:
-  b0:	f8 94       	cli
+000000b6 <_exit>:
+  b6:	f8 94       	cli
 
-000000b2 <__stop_program>:
-  b2:	ff cf       	rjmp	.-2      	; 0xb2 <__stop_program>
+000000b8 <__stop_program>:
+  b8:	ff cf       	rjmp	.-2      	; 0xb8 <__stop_program>
