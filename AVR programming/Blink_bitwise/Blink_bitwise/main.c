@@ -6,15 +6,13 @@
 
 int main(void)
 {
-    DDRD|=(1<<DDD2);       //set DDD2(PD2) as output
+    DDRB|=(1<<DDB5);       //set DDD2(PD2) as output
 	
     while (1) 
 	
     {
-		PORTD|=(1<<PD2);    // set PD2=1
+		PORTB^=(1<<PB5);    // set PD2=1
 		_delay_ms(1000);
-		PORTD&=~(1<<PD2);   // set PD2=0
-		_delay_ms(1000);
-    }
+		
 }
-
+}
