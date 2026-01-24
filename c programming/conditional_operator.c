@@ -1,0 +1,10 @@
+#include<stdio.h>
+int main(){
+    int a,b,max;
+    printf("enter the values of a and b:");
+    scanf("%d %d",&a,&b);
+    max=a>b?a:b;//ternary operator
+    
+    printf("larger of%d and %d id %d\n",a,b,max);
+    return 0;
+}

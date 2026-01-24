@@ -22,7 +22,7 @@ int main(void)
     while (1) 
 	
     {
-		for(int i=0;i<=5;i++){
+		for(int i=0;str[i]!='\0';i++){
 			UDR0=str[i];
 		while(!(UCSR0A&(1<<UDRE0)));
 		

@@ -1,0 +1,17 @@
+#include<stdio.h>
+int main(){
+    int n,num,sum;
+    printf("enter the no:");
+    scanf("%d",&n);
+
+    for(int i=n;i<0;i--){
+        
+        num=n;
+        rem=num%10;
+        sum+=rem;
+        num/=10;
+
+
+    }
+    return 0;
+}

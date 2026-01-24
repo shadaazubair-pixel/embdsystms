@@ -1,0 +1,20 @@
+//to find smallest of three numbers using ternary operator
+
+#include<stdio.h>
+int main(){
+
+    int a,b,c,smallest;
+
+    printf("a=");
+    scanf("%d",&a);
+
+    printf("b=");
+    scanf("%d",&b);
+
+    printf("c=%d");
+    scanf("%d",&c);
+
+    smallest=a<b?((b<c)?c:b):((b>c)?b:c);
+    printf("the smallest number is %d\n",smallest);
+    return 0;
+}

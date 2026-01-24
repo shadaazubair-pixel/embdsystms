@@ -1,0 +1,73 @@
+!SESSION 2026-01-23 11:13:07.777 -----------------------------------------------
+eclipse.buildId=Version 1.19.0
+java.version=21.0.3
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
+Command-line arguments:  -os win32 -ws win32 -arch x86_64
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 4 4 2026-01-23 11:13:58.681
+!MESSAGE CubeMX plugin appears to be active, Log4j initialization might be too late.
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 1 1 2026-01-23 11:13:58.686
+!MESSAGE Log4j2 initialized with config file C:\Users\user\OneDrive\Desktop\embdsystms\STM32 programming\F401drivers\.metadata\.log4j2.xml
+
+!ENTRY com.st.stm32cube.ide.mcu.ide 1 1 2026-01-23 11:14:04.836
+!MESSAGE Started RMI Server, listening on port 41337
+
+!ENTRY org.eclipse.cdt.core 1 0 2026-01-23 11:16:10.360
+!MESSAGE Indexed 'DriversDev' (3 sources, 53 headers) in 2.92 sec: 1,954 declarations; 2,863 references; 0 unresolved inclusions; 2 syntax errors; 2 unresolved names (0.042%)
+!SESSION 2026-01-24 20:45:06.128 -----------------------------------------------
+eclipse.buildId=Version 1.19.0
+java.version=21.0.3
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
+Framework arguments:  C:\Users\user\OneDrive\Desktop\embdsystms\STM32 programming\F401drivers\DriversDev\.cproject
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 C:\Users\user\OneDrive\Desktop\embdsystms\STM32 programming\F401drivers\DriversDev\.cproject
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 4 4 2026-01-24 20:45:23.830
+!MESSAGE CubeMX plugin appears to be active, Log4j initialization might be too late.
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 1 1 2026-01-24 20:45:23.832
+!MESSAGE Log4j2 initialized with config file C:\Users\user\OneDrive\Desktop\embdsystms\STM32 programming\F401drivers\.metadata\.log4j2.xml
+
+!ENTRY com.st.stm32cube.ide.mcu.ide 1 1 2026-01-24 20:45:34.669
+!MESSAGE Started RMI Server, listening on port 41337
+
+!ENTRY org.eclipse.cdt.core 1 0 2026-01-24 20:45:35.594
+!MESSAGE Indexed 'DriversDev' (3 sources, 53 headers) in 0.852 sec: 1,954 declarations; 2,862 references; 0 unresolved inclusions; 1 syntax errors; 2 unresolved names (0.042%)
+
+!ENTRY org.eclipse.core.jobs 2 2 2026-01-24 20:45:39.735
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.ui.internal.Workbench$39 RUNNING
+	 at org.apache.xerces.impl.XMLEntityScanner.scanContent(Unknown Source)
+	 at org.apache.xerces.impl.XMLDocumentFragmentScannerImpl.scanContent(Unknown Source)
+	 at org.apache.xerces.impl.XMLDocumentFragmentScannerImpl$FragmentContentDispatcher.dispatch(Unknown Source)
+	 at org.apache.xerces.impl.XMLDocumentFragmentScannerImpl.scanDocument(Unknown Source)
+	 at org.apache.xerces.parsers.XML11Configuration.parse(Unknown Source)
+	 at org.apache.xerces.parsers.XML11Configuration.parse(Unknown Source)
+	 at org.apache.xerces.parsers.XMLParser.parse(Unknown Source)
+	 at org.apache.xerces.parsers.AbstractSAXParser.parse(Unknown Source)
+	 at org.apache.xerces.jaxp.SAXParserImpl$JAXPSAXParser.parse(Unknown Source)
+	 at org.jdom.input.SAXBuilder.build(SAXBuilder.java:518)
+	 at org.jdom.input.SAXBuilder.build(SAXBuilder.java:865)
+	 at com.st.microxplorer.db.RulesReader.<init>(RulesReader.java:42)
+	 at com.st.microxplorer.db.DbConfProperties.loadCompatibilityRules(DbConfProperties.java:242)
+	 at com.st.microxplorer.mxsystem.ProjectFactory.<init>(ProjectFactory.java:104)
+	 at com.st.microxplorer.plugins.filemanager.iocCompare.IocComparePanel.<init>(IocComparePanel.java:143)
+	 at com.st.microxplorer.plugins.filemanager.engine.MainFileManager.userCompareProjectsTool(MainFileManager.java:297)
+	 at com.st.microxplorer.plugins.filemanager.FileManagerView.getSpecificTask(FileManagerView.java:338)
+	 at com.st.microxplorer.plugins.tools.ToolsMainPanel.<init>(ToolsMainPanel.java:65)
+	 at com.st.microxplorer.plugins.tools.ToolsView.getUI(ToolsView.java:118)
+	 at com.st.microxplorer.plugin.PluginManage.PluginDiscovery(PluginManage.java:103)
+	 at com.st.microxplorer.maingui.MainPanel.initialization(MainPanel.java:332)
+	 at com.st.microxplorer.maingui.AppletMainFrameCubeIde.init(AppletMainFrameCubeIde.java:242)
+	 at com.st.stm32cube.common.mx.core.CubeMxInstance.<init>(CubeMxInstance.java:117)
+	 at com.st.stm32cube.common.mx.core.CubeMxInstance.getInstance(CubeMxInstance.java:91)
+	 at com.st.stm32cube.common.mx.userauth.UserAuthAdapter.<init>(UserAuthAdapter.java:25)
+	 at com.st.stm32cube.common.mx.userauth.UserAuthProvider.getUserAuthAdapter(UserAuthProvider.java:16)
+	 at com.st.stm32cube.common.ecosystemintegration.ui.core.MCUEcoSystemIntegrationUiHelper.getUserAuth(MCUEcoSystemIntegrationUiHelper.java:100)
+	 at com.st.stm32cube.ide.mcu.userauth.UserAuthStartup.earlyStartup(UserAuthStartup.java:32)
+	 at org.eclipse.ui.internal.EarlyStartupRunnable.runEarlyStartup(EarlyStartupRunnable.java:79)
+	 at org.eclipse.ui.internal.EarlyStartupRunnable.run(EarlyStartupRunnable.java:55)
+	 at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:47)
+	 at org.eclipse.ui.internal.Workbench$39.run(Workbench.java:2733)
+	 at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)

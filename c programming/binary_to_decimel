@@ -1,0 +1,16 @@
+#include<stdio.h>
+int main(){
+    int bin,rem,dec=0,j=1;
+
+    printf("Enter the binary number:");
+    scanf("%d",&bin);
+
+    while(bin>=0){
+        rem=bin%10;
+        dec+=rem*j;
+        j*=2;
+        bin/=10;
+
+    }
+    printf("the decimel of %d",dec);
+}

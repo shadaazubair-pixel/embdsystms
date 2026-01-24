@@ -1,0 +1,15 @@
+#include<stdio.h>
+int main(){
+
+    float a,b;
+    a=12.4;
+    b=3.1;
+
+    printf("the sum is %f",a+b);
+    printf("the difference is %f",a-b);
+    printf("the product is %f",a*b);
+    printf("the quotient is %f",a/b);
+    printf("the reminder is %f",a%b);
+
+    return 0;
+}

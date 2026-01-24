@@ -1,0 +1,11 @@
+#include<stdio.h>
+void drawline();  //function declaration
+int main(){
+    drawline();   //function call
+    return 0;
+}
+void drawline(){           //function definition
+    for(int i=0;i<=80;i++){
+        printf("-");
+    }
+}

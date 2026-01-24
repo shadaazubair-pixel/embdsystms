@@ -1,7 +1,0 @@
-Assessment feedback
-
-In Q1 i had some doubts regarding how an array would be called in a function. so it did create some errors. so i referred the book "c in depth" and was able to call the array into function properly. To find the second largest number, i took some time to come in terms with the logic as i knew how to find the largest and smallest number but not the second largest. But i was able to figure it out.
-
-In Q2 as i had done a question sir had given in class before, i was able to do it well but some confusions were there in masking but i eventually figured it out.
-
-In Q3 i took some time to solve it as i had to learn nesting of loops. i did some problems regarding nesting of loops and eventually moved to pyramid printing. i practiced using some simple questions and finally did the assessment question on my own.

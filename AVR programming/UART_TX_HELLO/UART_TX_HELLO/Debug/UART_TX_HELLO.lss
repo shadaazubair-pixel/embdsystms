@@ -3,29 +3,29 @@ UART_TX_HELLO.elf:     file format elf32-avr
 
 Sections:
 Idx Name          Size      VMA       LMA       File off  Algn
-  0 .data         0000000a  00800100  00000130  000001a4  2**0
+  0 .data         0000000a  00800100  0000012e  000001a2  2**0
                   CONTENTS, ALLOC, LOAD, DATA
-  1 .text         00000130  00000000  00000000  00000074  2**1
+  1 .text         0000012e  00000000  00000000  00000074  2**1
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
-  2 .comment      00000030  00000000  00000000  000001ae  2**0
+  2 .comment      00000030  00000000  00000000  000001ac  2**0
                   CONTENTS, READONLY
-  3 .note.gnu.avr.deviceinfo 00000040  00000000  00000000  000001e0  2**2
+  3 .note.gnu.avr.deviceinfo 00000040  00000000  00000000  000001dc  2**2
                   CONTENTS, READONLY
-  4 .debug_aranges 00000020  00000000  00000000  00000220  2**0
+  4 .debug_aranges 00000020  00000000  00000000  0000021c  2**0
                   CONTENTS, READONLY, DEBUGGING
-  5 .debug_info   0000074a  00000000  00000000  00000240  2**0
+  5 .debug_info   0000074a  00000000  00000000  0000023c  2**0
                   CONTENTS, READONLY, DEBUGGING
-  6 .debug_abbrev 000006a4  00000000  00000000  0000098a  2**0
+  6 .debug_abbrev 000006a4  00000000  00000000  00000986  2**0
                   CONTENTS, READONLY, DEBUGGING
-  7 .debug_line   0000028e  00000000  00000000  0000102e  2**0
+  7 .debug_line   0000028e  00000000  00000000  0000102a  2**0
                   CONTENTS, READONLY, DEBUGGING
-  8 .debug_frame  00000034  00000000  00000000  000012bc  2**2
+  8 .debug_frame  00000034  00000000  00000000  000012b8  2**2
                   CONTENTS, READONLY, DEBUGGING
-  9 .debug_str    000003af  00000000  00000000  000012f0  2**0
+  9 .debug_str    000003af  00000000  00000000  000012ec  2**0
                   CONTENTS, READONLY, DEBUGGING
- 10 .debug_loc    0000006b  00000000  00000000  0000169f  2**0
+ 10 .debug_loc    0000006b  00000000  00000000  0000169b  2**0
                   CONTENTS, READONLY, DEBUGGING
- 11 .debug_ranges 00000010  00000000  00000000  0000170a  2**0
+ 11 .debug_ranges 00000010  00000000  00000000  00001706  2**0
                   CONTENTS, READONLY, DEBUGGING
 
 Disassembly of section .text:
@@ -70,7 +70,7 @@ Disassembly of section .text:
   74:	11 e0       	ldi	r17, 0x01	; 1
   76:	a0 e0       	ldi	r26, 0x00	; 0
   78:	b1 e0       	ldi	r27, 0x01	; 1
-  7a:	e0 e3       	ldi	r30, 0x30	; 48
+  7a:	ee e2       	ldi	r30, 0x2E	; 46
   7c:	f1 e0       	ldi	r31, 0x01	; 1
   7e:	02 c0       	rjmp	.+4      	; 0x84 <__do_copy_data+0x10>
   80:	05 90       	lpm	r0, Z+
@@ -79,7 +79,7 @@ Disassembly of section .text:
   86:	b1 07       	cpc	r27, r17
   88:	d9 f7       	brne	.-10     	; 0x80 <__do_copy_data+0xc>
   8a:	0e 94 4b 00 	call	0x96	; 0x96 <main>
-  8e:	0c 94 96 00 	jmp	0x12c	; 0x12c <_exit>
+  8e:	0c 94 95 00 	jmp	0x12a	; 0x12a <_exit>
 
 00000092 <__bad_interrupt>:
   92:	0c 94 00 00 	jmp	0	; 0x0 <__vectors>
@@ -147,53 +147,52 @@ int main(void)
     while (1) 
 	
     {
-		for(int i=0;i<=5;i++){
+		for(int i=0;str[i]!='\0';i++){
   ee:	20 e0       	ldi	r18, 0x00	; 0
   f0:	30 e0       	ldi	r19, 0x00	; 0
-  f2:	0f c0       	rjmp	.+30     	; 0x112 <main+0x7c>
+  f2:	08 c0       	rjmp	.+16     	; 0x104 <main+0x6e>
 			UDR0=str[i];
-  f4:	e1 e0       	ldi	r30, 0x01	; 1
-  f6:	f0 e0       	ldi	r31, 0x00	; 0
-  f8:	ec 0f       	add	r30, r28
-  fa:	fd 1f       	adc	r31, r29
-  fc:	e2 0f       	add	r30, r18
-  fe:	f3 1f       	adc	r31, r19
- 100:	80 81       	ld	r24, Z
- 102:	80 93 c6 00 	sts	0x00C6, r24	; 0x8000c6 <__TEXT_REGION_LENGTH__+0x7f80c6>
+  f4:	80 93 c6 00 	sts	0x00C6, r24	; 0x8000c6 <__TEXT_REGION_LENGTH__+0x7f80c6>
 		while(!(UCSR0A&(1<<UDRE0)));
- 106:	80 91 c0 00 	lds	r24, 0x00C0	; 0x8000c0 <__TEXT_REGION_LENGTH__+0x7f80c0>
- 10a:	85 ff       	sbrs	r24, 5
- 10c:	fc cf       	rjmp	.-8      	; 0x106 <main+0x70>
+  f8:	80 91 c0 00 	lds	r24, 0x00C0	; 0x8000c0 <__TEXT_REGION_LENGTH__+0x7f80c0>
+  fc:	85 ff       	sbrs	r24, 5
+  fe:	fc cf       	rjmp	.-8      	; 0xf8 <main+0x62>
 	
     
     while (1) 
 	
     {
-		for(int i=0;i<=5;i++){
- 10e:	2f 5f       	subi	r18, 0xFF	; 255
- 110:	3f 4f       	sbci	r19, 0xFF	; 255
- 112:	26 30       	cpi	r18, 0x06	; 6
- 114:	31 05       	cpc	r19, r1
- 116:	74 f3       	brlt	.-36     	; 0xf4 <main+0x5e>
+		for(int i=0;str[i]!='\0';i++){
+ 100:	2f 5f       	subi	r18, 0xFF	; 255
+ 102:	3f 4f       	sbci	r19, 0xFF	; 255
+ 104:	e1 e0       	ldi	r30, 0x01	; 1
+ 106:	f0 e0       	ldi	r31, 0x00	; 0
+ 108:	ec 0f       	add	r30, r28
+ 10a:	fd 1f       	adc	r31, r29
+ 10c:	e2 0f       	add	r30, r18
+ 10e:	f3 1f       	adc	r31, r19
+ 110:	80 81       	ld	r24, Z
+ 112:	81 11       	cpse	r24, r1
+ 114:	ef cf       	rjmp	.-34     	; 0xf4 <main+0x5e>
 	#else
 		//round up by default
 		__ticks_dc = (uint32_t)(ceil(fabs(__tmp)));
 	#endif
 
 	__builtin_avr_delay_cycles(__ticks_dc);
- 118:	bf ef       	ldi	r27, 0xFF	; 255
- 11a:	23 ed       	ldi	r18, 0xD3	; 211
- 11c:	80 e3       	ldi	r24, 0x30	; 48
- 11e:	b1 50       	subi	r27, 0x01	; 1
- 120:	20 40       	sbci	r18, 0x00	; 0
- 122:	80 40       	sbci	r24, 0x00	; 0
- 124:	e1 f7       	brne	.-8      	; 0x11e <main+0x88>
- 126:	00 c0       	rjmp	.+0      	; 0x128 <main+0x92>
- 128:	00 00       	nop
- 12a:	e1 cf       	rjmp	.-62     	; 0xee <main+0x58>
+ 116:	bf ef       	ldi	r27, 0xFF	; 255
+ 118:	23 ed       	ldi	r18, 0xD3	; 211
+ 11a:	80 e3       	ldi	r24, 0x30	; 48
+ 11c:	b1 50       	subi	r27, 0x01	; 1
+ 11e:	20 40       	sbci	r18, 0x00	; 0
+ 120:	80 40       	sbci	r24, 0x00	; 0
+ 122:	e1 f7       	brne	.-8      	; 0x11c <main+0x86>
+ 124:	00 c0       	rjmp	.+0      	; 0x126 <main+0x90>
+ 126:	00 00       	nop
+ 128:	e2 cf       	rjmp	.-60     	; 0xee <main+0x58>
 
-0000012c <_exit>:
- 12c:	f8 94       	cli
+0000012a <_exit>:
+ 12a:	f8 94       	cli
 
-0000012e <__stop_program>:
- 12e:	ff cf       	rjmp	.-2      	; 0x12e <__stop_program>
+0000012c <__stop_program>:
+ 12c:	ff cf       	rjmp	.-2      	; 0x12c <__stop_program>
