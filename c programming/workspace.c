@@ -6,7 +6,7 @@ int main(){
     printf("\na-b=%f",a-b);
     printf("\na*b=%f",a*b);
     printf("\na/b=%f",a/b);
-    //printf("a%b=%f",a%b);
+    //printf("a%b=%f",a%b);V
 
     return 0;
     

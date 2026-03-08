@@ -1,0 +1,2 @@
+../Src/gpioinpt.c:14:6:main	32	static
+../Src/gpioinpt.c:54:6:EXTI15_10_IRQHandler	8	static

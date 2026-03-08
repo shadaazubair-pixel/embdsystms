@@ -396,3 +396,87 @@ C Model Exception: C Model Status [Element button_led.c does not exist.]
 	at org.eclipse.jface.text.reconciler.AbstractReconciler$BackgroundThread.run(AbstractReconciler.java:207)
 !SUBENTRY 1 org.eclipse.cdt.core 4 969 2026-02-09 11:24:13.410
 !MESSAGE Element button_led.c does not exist.
+!SESSION 2026-02-13 20:18:04.455 -----------------------------------------------
+eclipse.buildId=Version 1.19.0
+java.version=21.0.3
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
+Command-line arguments:  -os win32 -ws win32 -arch x86_64
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 4 4 2026-02-13 20:18:24.847
+!MESSAGE CubeMX plugin appears to be active, Log4j initialization might be too late.
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 1 1 2026-02-13 20:18:24.848
+!MESSAGE Log4j2 initialized with config file C:\Users\user\OneDrive\Desktop\embdsystms\STM32 programming\F401drivers\.metadata\.log4j2.xml
+
+!ENTRY com.st.stm32cube.ide.mcu.ide 1 1 2026-02-13 20:18:31.604
+!MESSAGE Started RMI Server, listening on port 41337
+!SESSION 2026-02-19 12:11:10.260 -----------------------------------------------
+eclipse.buildId=Version 1.19.0
+java.version=21.0.3
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
+Command-line arguments:  -os win32 -ws win32 -arch x86_64
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 4 4 2026-02-19 12:11:22.295
+!MESSAGE CubeMX plugin appears to be active, Log4j initialization might be too late.
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 1 1 2026-02-19 12:11:22.298
+!MESSAGE Log4j2 initialized with config file C:\Users\user\OneDrive\Desktop\embdsystms\STM32 programming\F401drivers\.metadata\.log4j2.xml
+
+!ENTRY com.st.stm32cube.ide.mcu.ide 1 1 2026-02-19 12:11:31.698
+!MESSAGE Started RMI Server, listening on port 41337
+!SESSION 2026-03-01 14:10:39.095 -----------------------------------------------
+eclipse.buildId=Version 1.19.0
+java.version=21.0.3
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
+Command-line arguments:  -os win32 -ws win32 -arch x86_64
+
+!ENTRY org.eclipse.core.resources 2 10035 2026-03-01 14:10:46.166
+!MESSAGE The workspace exited with unsaved changes in the previous session; refreshing workspace to recover changes.
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 4 4 2026-03-01 14:10:53.716
+!MESSAGE CubeMX plugin appears to be active, Log4j initialization might be too late.
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 1 1 2026-03-01 14:10:53.720
+!MESSAGE Log4j2 initialized with config file C:\Users\user\OneDrive\Desktop\embdsystms\STM32 programming\F401drivers\.metadata\.log4j2.xml
+
+!ENTRY com.st.stm32cube.ide.mcu.ide 1 1 2026-03-01 14:11:04.812
+!MESSAGE Started RMI Server, listening on port 41337
+!SESSION 2026-03-04 11:54:43.415 -----------------------------------------------
+eclipse.buildId=Version 1.19.0
+java.version=21.0.3
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
+Command-line arguments:  -os win32 -ws win32 -arch x86_64
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 4 4 2026-03-04 11:55:10.522
+!MESSAGE CubeMX plugin appears to be active, Log4j initialization might be too late.
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 1 1 2026-03-04 11:55:10.526
+!MESSAGE Log4j2 initialized with config file C:\Users\user\OneDrive\Desktop\embdsystms\STM32 programming\F401drivers\.metadata\.log4j2.xml
+
+!ENTRY com.st.stm32cube.ide.mcu.ide 1 1 2026-03-04 11:55:22.101
+!MESSAGE Started RMI Server, listening on port 41337
+
+!ENTRY org.eclipse.cdt.core 1 0 2026-03-04 12:01:29.184
+!MESSAGE Indexed 'DriversDev' (4 sources, 58 headers) in 1.06 sec: 2,238 declarations; 3,400 references; 0 unresolved inclusions; 1 syntax errors; 2 unresolved names (0.035%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2026-03-04 12:02:30.541
+!MESSAGE Indexed 'DriversDev' (5 sources, 58 headers) in 0.646 sec: 2,279 declarations; 3,977 references; 0 unresolved inclusions; 1 syntax errors; 2 unresolved names (0.032%)
+!SESSION 2026-03-04 12:41:39.860 -----------------------------------------------
+eclipse.buildId=Version 1.19.0
+java.version=21.0.3
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
+Command-line arguments:  -os win32 -ws win32 -arch x86_64
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 4 4 2026-03-04 12:41:53.632
+!MESSAGE CubeMX plugin appears to be active, Log4j initialization might be too late.
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 1 1 2026-03-04 12:41:53.634
+!MESSAGE Log4j2 initialized with config file C:\Users\user\OneDrive\Desktop\embdsystms\STM32 programming\F401drivers\.metadata\.log4j2.xml
+
+!ENTRY com.st.stm32cube.ide.mcu.ide 1 1 2026-03-04 12:42:06.413
+!MESSAGE Started RMI Server, listening on port 41337

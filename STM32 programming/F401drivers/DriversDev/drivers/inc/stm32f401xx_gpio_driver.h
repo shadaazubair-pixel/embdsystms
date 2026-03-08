@@ -51,6 +51,9 @@ typedef struct{
 #define GPIO_MODE_OUT           1  //OUTPUT 01
 #define GPIO_MODE_ALT           2  //ALT function mode 10
 #define GPIO_MODE_ANALOG        3  // analog mode 11
+#define GPIO_MODE_IT_FT         4  //interrupt mode for falling edge
+#define GPIO_MODE_IT_RT         5  //interrupt mode for rising edge
+#define GPIO_MODE_IT_RFT        6  //interrupt mode for rising and falling edge
 
 
 /*GPIO SPEED*/
@@ -61,7 +64,7 @@ typedef struct{
 
 /*GPIO PUPD CONTROLS*/
 #define GPIO_NOPULLUP_NOPULLDOWN 0
-#define GPIO_PULLP               1
+#define GPIO_PULLUP               1
 #define GPIO_PULLDOWN            2
 
 /*GPIO PIN OUTPUT TYPE*/
@@ -79,10 +82,17 @@ void GPIO_DeInit(GPIO_RegDef_t *pGPIOx);
 uint8_t GPIO_Readfrominputpin(GPIO_RegDef_t *pGPIOx, uint8_t PinNumber);
 uint16_t GPIO_Readfrominputport(GPIO_RegDef_t *pGPIOx);
 
+
 void GPIO_Writetooutputpin(GPIO_RegDef_t *pGPIOx, uint8_t PinNumber, uint8_t Value);
 void GPIO_Writetooutputport(GPIO_RegDef_t *pGPIOx, uint8_t Value);
 
 void GPIO_Toggleoutputpin(GPIO_RegDef_t *pGPIOx, uint8_t PinNumber);
+
+/*IRQ configuration and ISR handling*/
+void GPIO_IRQInterruptConfig(uint8_t IRQNumber, uint8_t EnorDi);
+void GPIO_IRQPriorityConfig(uint8_t IRQNumber, uint32_t IRQPriority);
+void GPIO_IRQHandling(uint8_t PinNumber);
+
 
 
 

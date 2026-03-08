@@ -13,6 +13,23 @@
 
 #define __vo            volatile
 
+/*processor definition*/
+/*ARM cortex m4 processor NVIC ICERx register address*/
+#define NVIC_ISER0        ((__vo uint32_t*)0XE000E100)
+#define NVIC_ISER1        ((__vo uint32_t*)0XE000E104)
+#define NVIC_ISER2        ((__vo uint32_t*)0XE000E108)
+#define NVIC_ISER3        ((__vo uint32_t*)0XE000E10C)
+
+/* ARM CORTEX M4 processor ICERx register address*/
+#define NVIC_ICER0        ((__vo uint32_t*)0XE000E180)
+#define NVIC_ICER1        ((__vo uint32_t*)0XE000E184)
+#define NVIC_ICER2        ((__vo uint32_t*)0XE000E188)
+#define NVIC_ICER3        ((__vo uint32_t*)0XE000E18C)
+
+/*ARM CORTEX M4 processor priority register address calculation*/
+#define NVIC_PR_BASE_ADDR  ((__vo uint32_t*)0XE000E400)
+
+
 
 /* memory base addresses*/
 #define FLASH_BASEADDR                       0x08000000U // all addresses from reference manual
@@ -150,6 +167,28 @@ typedef struct{
 
 }RCC_RegDef_t;
 
+/*EXTI register configuration*/
+typedef struct{
+	__vo uint32_t IMR;// Interrupt Mask Register         - Offset: 0x00
+	__vo uint32_t EMR;  // Event Mask Register             - Offset: 0x04
+	__vo uint32_t RTSR; // Rising Trigger Selection Reg    - Offset: 0x08
+	__vo uint32_t FTSR;  // Falling Trigger Selection Reg   - Offset: 0x0C
+	__vo uint32_t SWIER; // Software Interrupt Event Reg    - Offset: 0x10
+	__vo uint32_t PR;   // Pending Register                - Offset: 0x14
+}EXTI_RegDef_t;
+
+
+/*SYSCFG register configuration*/
+typedef struct{
+	__vo uint32_t MEMRMP; // Memory Remap Register    - Offset: 0x00
+	__vo uint32_t PMC;  // Peripheral Mode Config      - Offset: 0x04
+	__vo uint32_t EXTICR[4]; // External Interrupt Config   - Offset: 0x08-0x14
+	__vo uint32_t CMPCR;  // Compensation Cell Control   - Offset: 0x20
+
+}SYSCFG_RegDef_t;
+
+
+
 
 #define GPIOA    (GPIO_RegDef_t *)(GPIOA_PERI_BASEADDR)
 #define GPIOB    (GPIO_RegDef_t *)(GPIOB_PERI_BASEADDR)
@@ -160,7 +199,9 @@ typedef struct{
 
 
 
-#define RCC      ((RCC_RegDef_t*)(RCC_PERI_BASEADDR))
+#define RCC      ((RCC_RegDef_t*)RCC_PERI_BASEADDR)
+#define EXTI     ((EXTI_RegDef_t*)EXTI_PERI_BASEADDR)
+#define SYSCFG   ((SYSCFG_RegDef_t*)SYSCFG_PERI_BASEADDR)
 
 /*clock enable and disable macros*/
 
@@ -170,6 +211,7 @@ typedef struct{
 #define GPIOD_PCLK_EN()   (RCC->AHB1ENR|=(1<<3))
 #define GPIOE_PCLK_EN()   (RCC->AHB1ENR|=(1<<4))
 #define GPIOH_PCLK_EN()   (RCC->AHB1ENR|=(1<<7))
+
 
 
 #define GPIOA_PCLK_DI()   (RCC->AHB1ENR&=~(1<<0))
@@ -198,9 +240,23 @@ typedef struct{
 #define ENABLE            1
 #define DISABLE           0
 
+/* clock enable macros for SYSCFG peripheral*/
+#define SYSCFG_PCLK_EN()  (RCC->APB2ENR|=(1<<14))
+
+
+/*this macro returns a code between 0 t0 7 for given GPIO base address*/
+#define GPIO_BASEADDR_TO_CODE(x) ((x == GPIOA)?0:\
+	                               (x == GPIOB)?1:\
+	                               (x == GPIOC)?2:\
+	                               (x == GPIOD)?3:\
+	                               (x == GPIOE)?4:\
+	                               (x == GPIOH)?7:0)
+
+
 
 #define GPIO_SET_PIN      1
 #define GPIO_CLEAR_PIN    0
+#define NO_PR_BITS_IMPLEMENTED  4
 
 #define I2C1_PCLK_EN()    (RCC->APB1ENR|=(1<<21))
 #define I2C2_PCLK_EN()    (RCC->APB1ENR|=(1<<22))

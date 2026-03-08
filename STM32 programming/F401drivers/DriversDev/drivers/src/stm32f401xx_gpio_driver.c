@@ -117,8 +117,38 @@ void GPIO_Init(GPIO_Handle_t*pGPIOHandle){
 		temp=0;
 	}
 
+
+	//interrupt modes
 	else
 	{
+		if(pGPIOHandle->GPIO_PinConfig.GPIO_PinMode==GPIO_MODE_IT_FT)
+		{
+			EXTI->FTSR|=(1<<pGPIOHandle->GPIO_PinConfig.GPIO_PinNumber);
+			EXTI->RTSR&=~(1<<pGPIOHandle->GPIO_PinConfig.GPIO_PinNumber);
+		}
+
+		else if(pGPIOHandle->GPIO_PinConfig.GPIO_PinMode==GPIO_MODE_IT_RT)
+		{
+			EXTI->FTSR&=~(1<<pGPIOHandle->GPIO_PinConfig.GPIO_PinNumber);
+			EXTI->RTSR|=(1<<pGPIOHandle->GPIO_PinConfig.GPIO_PinNumber);
+
+		}
+
+		else if(pGPIOHandle->GPIO_PinConfig.GPIO_PinMode==GPIO_MODE_IT_RFT)
+		{
+			EXTI->FTSR|=(1<<pGPIOHandle->GPIO_PinConfig.GPIO_PinNumber);
+			EXTI->RTSR|=(1<<pGPIOHandle->GPIO_PinConfig.GPIO_PinNumber);
+		}
+		//2. configure gpio port selection in SYSCFG_EXTICR
+		uint8_t temp1 = pGPIOHandle->GPIO_PinConfig.GPIO_PinNumber/4;
+		uint8_t temp2 = pGPIOHandle->GPIO_PinConfig.GPIO_PinNumber%4;
+		uint8_t portcode = GPIO_BASEADDR_TO_CODE(pGPIOHandle->pGPIOx);
+		SYSCFG_PCLK_EN();
+		SYSCFG->EXTICR[temp1]  = portcode << (temp2 * 4);
+
+		//3. enable EXTI interrupt delivery using IMR
+		EXTI->IMR|= (1 << pGPIOHandle->GPIO_PinConfig.GPIO_PinNumber);
+
 
 	}
 
@@ -307,4 +337,118 @@ void GPIO_Writetooutputport(GPIO_RegDef_t *pGPIOx, uint8_t Value){
 
 void GPIO_Toggleoutputpin(GPIO_RegDef_t *pGPIOx, uint8_t PinNumber){
 	pGPIOx->ODR^=(1<<PinNumber);
+}
+
+
+
+
+
+/*********************************************************************
+ * @fn          - GPIO_IRQInterruptConfig
+ *
+ * @brief       - this function IS USED TO set or clear to enable od disable interrupt register
+ *
+ * @param[in]   - IRQNumber
+ * @param[in]   - EnorDi
+ *
+
+ *
+ * @return      - none
+ *
+ * @Note        - none
+ *********************************************************************/
+
+
+void GPIO_IRQInterruptConfig(uint8_t IRQNumber, uint8_t EnorDi){
+	if(EnorDi == ENABLE){
+
+		if(IRQNumber<=31)
+		{
+			//program ISER0 register
+			*NVIC_ISER0|= (1<<IRQNumber);
+
+		}
+		else if(IRQNumber>31 && IRQNumber<64)  // 32 to 63
+		{
+			*NVIC_ISER1|=(1<<(IRQNumber%32));
+		}
+
+		else if(IRQNumber>=64 && IRQNumber<96)
+		{
+			*NVIC_ISER2|=(1<<(IRQNumber%64));
+		}
+	}
+	else
+	{
+		if(IRQNumber<=31)
+		{
+
+			*NVIC_ICER0|= (1<<IRQNumber);
+		}
+
+		else if(IRQNumber>31 && IRQNumber<64)
+		{
+			*NVIC_ICER1|=(1<<(IRQNumber%32));
+
+		}
+		else if(IRQNumber>=64 && IRQNumber<96){
+
+			*NVIC_ICER2|=(1<<(IRQNumber%64));
+
+		}
+
+	}
+
+}
+
+/*********************************************************************
+ * @fn          - GPIO_IRQPriorityConfig
+ *
+ * @brief       - this function is used to configure priority
+ *
+ * @param[in]   - IRQNumber
+ * @param[in]   - IRQPriority
+ *
+
+ *
+ * @return      - none
+ *
+ * @Note        - none
+ *********************************************************************/
+void GPIO_IRQPriorityConfig(uint8_t IRQNumber, uint32_t IRQPriority){
+
+	uint8_t iprx = IRQNumber/4; // choosing which ipr register ipr[0], ipr[1]...etc
+	uint8_t iprx_section = IRQNumber%4;  //inside the selected ipr register which section to be chosen among the four sections
+	uint8_t shift_amount = (8*iprx_section)+(8- NO_PR_BITS_IMPLEMENTED); //since only upper 4 bits are configured for priority first the bits should be shifted to the required section starting bit and 4 is added to shift it to the upper four bits
+	*(NVIC_PR_BASE_ADDR + iprx) |= (IRQPriority << shift_amount); //goes to NVIC PR BASE ADDRESS and adds ipr to go to required IPR register and priority is shifted to required bit position and OR ed
+
+}
+
+/*********************************************************************
+ * @fn          - GPIO_IRQHandling
+ *
+ * @brief       - this function is used to configure priority
+ *
+ * @param[in]   - pinnumber
+ *
+
+ *
+ * @return      - none
+ *
+ * @Note        - none
+ *********************************************************************/
+void GPIO_IRQHandling(uint8_t PinNumber){
+
+	//clear the EXTI PR register corresponding to pin number
+	if(EXTI->PR & (1<<PinNumber)){  //this line checks if the interrupt is pending if the value is 1 enter the loop
+
+		// clear
+		EXTI->PR |= (1<<PinNumber); //the PR is cleared by writing 1 and interrupt process is complete. if not cleared the interrupt will keep executing infinitely
+
+
+
+	}
+
+
+
 }
