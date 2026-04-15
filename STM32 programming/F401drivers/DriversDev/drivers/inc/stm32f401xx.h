@@ -299,9 +299,9 @@ typedef struct{
 
 }I2C_RegDef_t;
 
-#define I2C1  = (I2C_RegDef_t*)(I2C1_PERI_BASEADDR)
-#define I2C2  = (I2C_RegDef_t*)(I2C2_PERI_BASEADDR)
-#define I2C3  = (I2C_RegDef_t*)(I2C3_PERI_BASEADDR)
+#define I2C1   (I2C_RegDef_t*)(I2C1_PERI_BASEADDR)
+#define I2C2   (I2C_RegDef_t*)(I2C2_PERI_BASEADDR)
+#define I2C3   (I2C_RegDef_t*)(I2C3_PERI_BASEADDR)
 
 
 
@@ -321,10 +321,10 @@ typedef struct{
 
 }SPI_RegDef_t;
 
-#define SPI1  =  (SPI_RegDef*)(SPI1_PERI_BASEADDR)
-#define SPI2  =  (SPI_RegDef*)(SPI2_PERI_BASEADDR)
-#define SPI3  =  (SPI_RegDef*)(SPI3_PERI_BASEADDR)
-#define SPI4  =  (SPI_RegDef*)(SPI4_PERI_BASEADDR)
+#define SPI1     ((SPI_RegDef_t*)SPI1_PERI_BASEADDR)
+#define SPI2     ((SPI_RegDef_t*)SPI2_PERI_BASEADDR)
+#define SPI3     ((SPI_RegDef_t*)SPI3_PERI_BASEADDR)
+#define SPI4     ((SPI_RegDef_t*)SPI4_PERI_BASEADDR)
 
 
 

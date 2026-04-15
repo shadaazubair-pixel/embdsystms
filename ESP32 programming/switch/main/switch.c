@@ -3,8 +3,8 @@
 #include "freertos/FreeRTOS.h"
 #include "freertos/task.h"
 
-#define LED_GPIO 2
-#define BUTTON_GPIO 0
+#define LED_GPIO 15
+#define BUTTON_GPIO 4
 
 void app_main(void)
 {
@@ -28,7 +28,7 @@ void app_main(void)
             gpio_set_level(LED_GPIO, 1);
         }
 
-         vTaskDelay(1000/portTICK_PERIOD_MS);
+         vTaskDelay(10/portTICK_PERIOD_MS);
 
 
         
