@@ -1,0 +1,86 @@
+#include<stdio.h>
+
+int add(int a, int b){
+    int sum;
+    sum=a+b;
+    return sum;
+}
+
+
+int sub(int a, int b){
+    int diff;
+    diff=a-b;
+    return diff;
+}
+
+
+int mul(int a, int b){
+    int pdt;
+    pdt=a*b;
+    return pdt;
+
+
+
+}
+
+
+int div(int a,int b){
+    int quo;
+    
+    if(b==0){
+        printf("invalid");
+    }
+
+    quo=a/b;
+
+    return quo;
+
+
+    
+}
+    
+
+
+int main(){
+    int a,b;
+    char op;
+    printf("enter two numbers:");
+    scanf("%d %d",&a,&b);
+
+    printf("enter the operator(+,-,/,*):");
+    scanf("%c",&op);
+
+
+    switch(op){
+        case '+':
+        
+        printf("sum=%d",add(a,b));
+
+
+        case '-':
+        printf("difference=%d",sub(a,b));
+
+
+        case '*':
+        printf("product=%d",mul(a,b));
+
+
+        case '/':
+        printf("quotient=%d",div(a,b));
+
+
+
+
+        default:
+        printf("invalid operator");
+
+
+        
+        
+
+
+    }
+
+    return 0;
+
+}

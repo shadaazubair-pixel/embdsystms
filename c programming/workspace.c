@@ -1,13 +1,42 @@
 #include<stdio.h>
-int main(){
-    int a=10;
-    float b=7;
-    printf("a+b=%f",a+b);
-    printf("\na-b=%f",a-b);
-    printf("\na*b=%f",a*b);
-    printf("\na/b=%f",a/b);
-    //printf("a%b=%f",a%b);V
 
-    return 0;
-    
-}
+int main(){
+
+   int d,m,y;
+   printf("enter the date:");
+   scanf("%d/%d/%d",&d,&m,&y);
+
+   if(y<1850&&y>2050&&m>){
+      printf("the date is valid\n");
+   }
+   else{
+      printf("invalid date\n");
+   }
+
+   
+   
+
+   return 0;
+   
+
+   }
+   
+
+      
+      
+
+      
+
+  
+   
+
+
+
+
+   
+
+   
+
+
+
+

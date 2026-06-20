@@ -71,6 +71,7 @@ typedef struct{
 
 
 void SPI_PeriClockControl(SPI_RegDef_t *pSPIx, uint8_t  EnorDi);
+void SPI_Init
 
 
 #endif /* INC_STM32F401XX_SPI_DRIVER_H_ */
