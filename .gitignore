@@ -1,0 +1,21 @@
+# Visual Studio / Microchip Studio
+.vs/
+
+# Build folders
+Debug/
+Release/
+
+# AVR build files
+*.o
+*.d
+*.elf
+*.hex
+*.eep
+*.lss
+*.map
+*.srec
+
+# Generated files
+*.atsuo
+Makefile
+makedep.mk
